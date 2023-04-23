@@ -8,12 +8,13 @@ export const hosts = {
 
 function App() {
     const [isOpen, setIsOpen] = React.useState(false);
-    
     const host = window.location.host;
 
-    if (Object.values(hosts).includes(host)) {
-        setIsOpen(true);
-    }
+    useEffect(() => {
+        if (Object.values(hosts).includes(host)) {
+            setIsOpen(true);
+        }
+    }, []);
 
     return (
         <Root>
